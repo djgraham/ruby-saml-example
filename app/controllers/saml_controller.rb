@@ -3,12 +3,12 @@ class SamlController < ApplicationController
 
   def index
     settings = Account.get_saml_settings
-    request = Onelogin::Saml::Authrequest.new
+    request = OneLogin::RubySaml::Authrequest.new
     redirect_to(request.create(settings))
   end
 
   def consume
-    response = Onelogin::Saml::Response.new(params[:SAMLResponse])
+    response = OneLogin::RubySaml::Response.new(params[:SAMLResponse])
     response.settings = Account.get_saml_settings
 
     logger.info "NAMEID: #{response.name_id}"
