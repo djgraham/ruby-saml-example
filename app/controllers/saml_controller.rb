@@ -20,6 +20,12 @@ class SamlController < ApplicationController
       redirect_to :action => :fail
     end
   end
+
+  def metadata
+    settings = Account.get_saml_settings
+    meta = OneLogin::RubySaml::Metadata.new
+    render :xml => meta.generate(settings)
+  end
   
   def complete
   end

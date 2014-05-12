@@ -61,5 +61,6 @@ RubySamlExample::Application.routes.draw do
   get 'saml/complete'
   get 'saml/fail'
   get 'saml/logout'
+  get 'saml/metadata'
 
 end
