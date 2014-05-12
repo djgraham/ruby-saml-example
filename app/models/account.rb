@@ -1,5 +1,5 @@
 class Account < ActiveRecord::Base
-  def Account.get_saml_settings
+  def self.get_saml_settings
     # this is just for testing purposes. 
     
     # should retrieve SAML-settings based on subdomain, IP-address, NameID or similar
